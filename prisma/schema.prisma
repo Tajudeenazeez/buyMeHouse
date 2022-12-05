@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+//This shows that we are getting db from postresql and link via .env file
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//we want to create a prisma client base on the available model
+generator client {
+  provider = "prisma-client-js"
+}
+//model to use for prisma client 
+model User {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email     String?  @unique
+  image     String?
+  role      Role     @default(USER)
+  investment    Investment[]
+}
+
+enum  Role{
+  USER
+  ADMIN
+}
+
+model Investment {
+    id          String @id @default(uuid())
+    amount      Int  
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    title       String
+    description String
+    image       String
+    category    String
+    user        User[]
+}
+
