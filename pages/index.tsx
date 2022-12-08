@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { gql, useQuery } from '@apollo/client'
-import Link from 'next/link'
 import Header from '../components/Layouts/Header'
 
 const allInvestmentQuery = gql `
@@ -33,9 +32,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header/>
-        <h3 className={styles.title}>
+        <h1>
           Welcome to Isidore Housing investment
-        </h3>
+        </h1>
         {/* <Link href="/api/auth/login" >Login</Link> */}
 
         <ul className={styles.grid}>

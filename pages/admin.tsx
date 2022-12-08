@@ -6,7 +6,6 @@ import toast, { Toaster } from 'react-hot-toast'
 import { getSession } from '@auth0/nextjs-auth0'
 import styles from '../styles/Home.module.css'
 import prisma from '../lib/prisma'
-import next from 'next'
 
 
 
